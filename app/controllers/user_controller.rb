@@ -23,9 +23,32 @@ class UserController < ApplicationController
     end
   end
 
+  get '/login' do
+    if !logged_in?
+      erb :'users/login'
+    else
+      redirect "/reviews"
+    end
+  end
+
+  post '/login' do
+    if @user = User.find_by(:username => params[:username])
+      if @user.authenticate(params[:password])
+        login(@user.id)
+        redirect "/reviews"
+      else
+        redirect "/signup"
+      end
+    else
+      redirect "/signup"
+    end
+  end
+
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
     erb :'users/show'
   end
+
+
 
 end
