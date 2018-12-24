@@ -58,6 +58,10 @@ class UserController < ApplicationController
     end
   end
 
+  private
 
+  def login(id)
+    session[:user_id] = id
+  end
 
 end
