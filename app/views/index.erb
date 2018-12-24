@@ -1,0 +1,15 @@
+
+<% if logged_in? %>
+<h2>Welcome, <%= current_user.username %>!</h2>
+<% @reviews = Review.all %>
+<h2>Look at all those TWEETS!</h2>
+<% @reviews.each.with_index(1) do |review, index| %>
+<p>
+ <%=index%>. <%=review.user.username%> reviewed: <%=review.name%><br>
+ <%=review.description%><br>
+ <%=review.star_rating%><br>
+ </p>
+ <% end %>
+<% else %>
+<p>Welcome to Review This! Please <a href="/login">Login</a> or <a href="/signup">Signup</a> and Checkout our Reviews!</p>
+<% end %>
