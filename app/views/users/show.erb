@@ -4,7 +4,11 @@
 <h4>Your Reviews:</h4>
 
 <p>
-  <% @user.reviews.each.with_index(1) do |review, index| %>
-  <p><%= index %>. <%= review.name %><a href="/reviews/<%=review.id%>"> Check out Review</a></p>
+  <% if @user.reviews %>
+    <% @user.reviews.each.with_index(1) do |review, index| %>
+    <p><%= index %>. <%= review.name %><a href="/reviews/<%=review.id%>"> Check out Review</a></p>
+    <% end %>
+    <% else %>
+    No Reviews Yet! <a href="/reviews/new">Make A Review</a>
   <% end %>
 </p>

@@ -8,7 +8,7 @@ class UserController < ApplicationController
     end
   end
 
-  post '/singup' do
+  post '/signup' do
     if logged_in?
       redirect "/signup"
     else

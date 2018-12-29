@@ -1,0 +1,22 @@
+<h2>Make a Review Here</h2>
+
+<p>
+  <form action="/reviews" method="post">
+    <label for="name">Review Title:</label>
+    <input type="text" name="name" id="name" placeholder="name"><br>
+    Please rate your experience:
+    <div>
+  <label><input type="radio" name="star_rating" value="1">1 - Terrible</label>
+</div>
+<div>
+  <label><input type="radio" name="star_rating" value="2">2 - Fine</label>
+</div>
+<div>
+  <label><input type="radio" name="star_rating"value="3">3 - Great</label>
+</div>
+<div class="form-group">
+  <label>Please explain your review:<input class="form-control input-lg" id="inputlg" type="text" name="description"></label>
+</div>
+    <input type="submit"value="submit">
+  </form>
+</p>
