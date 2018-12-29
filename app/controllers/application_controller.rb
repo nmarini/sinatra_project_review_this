@@ -23,6 +23,16 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def rating(star_rating)
+      if star_rating == 1
+        "Terrible"
+      elsif star_rating == 2
+        "Fine"
+      else
+        "Great"
+      end
+    end
+
   end
 
 end

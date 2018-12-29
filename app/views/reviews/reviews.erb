@@ -1,1 +1,9 @@
-<h2>reviews</h2>
+<h2>Welcome, <%= current_user.username %>! Checkout our All of the Reviews:</h2>
+
+<p>
+  <% @reviews.each.with_index(1) do |review, index| %>
+    <%= index %>. <b><%= review.user.username %> reviewed:</b> <%= review.name %><br>
+    It was <%= rating(review.star_rating)! %><br>
+    <a href="/reviews/#{review.id}">Checkout their description here</a>
+  <% end %>
+</p>

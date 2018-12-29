@@ -2,7 +2,7 @@
 
 <p>
   <div>
-    <%= @review.star_rating %>
+    <h3><%= rating(@review.star_rating)! %></h3>
   </div>
   <div>
     <%= @review.description %>
