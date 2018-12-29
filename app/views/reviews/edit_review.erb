@@ -1,1 +1,23 @@
-<h2>edit_reviews</h2>
+<h2>Edit Review Here:</h2>
+<form action="/reviews/<%= @review.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label for="name">Update Review Title:</label>
+  <input type="text" name="name" id="name" value="<%= @review.name %>" placeholder="name"><br>
+  Please Update your Rating:
+<div>
+  <label><input type="radio" name="star_rating" value="<%=@review.star_rating%>">1 - Terrible</label>
+</div>
+<div>
+  <label><input type="radio" name="star_rating" value="<%=@review.star_rating%>">2 - Fine</label>
+</div>
+<div>
+  <label><input type="radio" name="star_rating"value="<%=@review.star_rating%>">3 - Great</label>
+</div>
+<div class="form-group">
+  <label>Please update your review:<input class="form-control input-lg" id="inputlg" type="text" name="description" value="<%= @review.description %>"></label>
+</div>
+
+<input type="submit" value="submit">
+
+</form>
