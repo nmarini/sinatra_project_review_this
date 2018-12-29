@@ -41,7 +41,7 @@ class ReviewController < ApplicationController
       @review = Review.find_by_id(params[:id])
 
       if current_user.reviews.include?(@review)
-        erb :'/reviews/edit_reviews'
+        erb :'/reviews/edit_review'
       else
         redirect "/reviews"
       end

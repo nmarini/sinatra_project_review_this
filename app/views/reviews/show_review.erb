@@ -1,1 +1,17 @@
-<h2>show_reviews</h2>
+<h2><%= current_user.username %>'s Review of: <%= @review.name %></h2>
+
+<p>
+  <div>
+    <%= @review.star_rating %>
+  </div>
+  <div>
+    <%= @review.description %>
+  </div>
+</p>
+<p><a class="btn-primary btn-sm" href="/reviews/<%= @review.id %>/edit">Edit Review</a></p>
+<p>
+<form action="/reviews/<%=@review.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Review">
+</form>
+</p>
