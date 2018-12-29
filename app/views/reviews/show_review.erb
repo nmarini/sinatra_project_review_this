@@ -2,12 +2,13 @@
 
 <p>
   <div>
-    <h3><%= rating(@review.star_rating)! %></h3>
+    <h3><%= rating(@review.star_rating) %>!</h3>
   </div>
   <div>
     <%= @review.description %>
   </div>
 </p>
+<%if current_user.reviews.include?(@review)%>
 <p><a class="btn-primary btn-sm" href="/reviews/<%= @review.id %>/edit">Edit Review</a></p>
 <p>
 <form action="/reviews/<%=@review.id%>/delete" method="post">
@@ -15,3 +16,4 @@
   <input type="submit" value="Delete Review">
 </form>
 </p>
+<%end%>

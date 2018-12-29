@@ -2,8 +2,10 @@
 
 <p>
   <% @reviews.each.with_index(1) do |review, index| %>
+  <div>
     <%= index %>. <b><%= review.user.username %> reviewed:</b> <%= review.name %><br>
-    It was <%= rating(review.star_rating)! %><br>
-    <a href="/reviews/#{review.id}">Checkout their description here</a>
+    It was <%= rating(review.star_rating) %>!<br>
+    <a href="/reviews/<%=review.id%>">Checkout their description here</a>
+  </div>
   <% end %>
 </p>
