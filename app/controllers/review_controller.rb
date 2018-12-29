@@ -9,5 +9,17 @@ class ReviewController < ApplicationController
     end
   end
 
+  get '/reviews/new' do
+    if logged_in?
+      erb :'reviews/new'
+    else
+      redirect "/login"
+    end
+  end
+
+
+
+
+
 
 end
