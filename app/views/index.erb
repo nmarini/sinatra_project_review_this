@@ -2,12 +2,12 @@
 <% if logged_in? %>
 <h2>Welcome, <%= current_user.username %>!</h2>
 <% @reviews = Review.all %>
-<h2>Look at all those TWEETS!</h2>
+<h2>All Reviews:</h2>
 <% @reviews.each.with_index(1) do |review, index| %>
 <p>
  <%=index%>. <%=review.user.username%> reviewed: <%=review.name%><br>
- <%=review.description%><br>
  <%=review.star_rating%><br>
+ <%=review.description%><br>
  </p>
  <% end %>
 <% else %>

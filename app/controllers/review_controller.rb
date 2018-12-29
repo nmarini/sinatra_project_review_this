@@ -29,7 +29,7 @@ class ReviewController < ApplicationController
   get '/reviews/:id' do
     if logged_in?
       @review = Review.find_by_id(params[:id])
-      redirect "/reviews/#{@review.id}"
+      erb :"/reviews/show_review"
     else
       redirect "/login"
     end
@@ -69,10 +69,5 @@ class ReviewController < ApplicationController
       redirect "/reviews"
     end
   end
-
-
-
-
-
 
 end
