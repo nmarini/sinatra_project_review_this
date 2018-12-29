@@ -50,6 +50,16 @@ class ReviewController < ApplicationController
     end
   end
 
+  patch '/reviews/:id' do
+    if params[:name] != ""
+      @review = Review.find_by_id(params[:id])
+      @review.update(:name => params[:name], :description => params[:description], :star_rating => params[:star_rating], :user_id => current_user.id)
+      redirect "/reviews/#{@review.id}"
+    else
+      redirect "/reviews/#{@review.id}/edit"
+    end
+  end
+
 
 
 
