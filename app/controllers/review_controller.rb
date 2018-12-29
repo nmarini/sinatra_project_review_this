@@ -60,6 +60,16 @@ class ReviewController < ApplicationController
     end
   end
 
+  delete '/reviews/:id/delete' do
+    @review = Review.find_by_id(params[:id])
+    if logged_in? && current_user.id == @review.user_id
+      @review.delete
+      redirect "/reviews"
+    else
+      redirect "/reviews"
+    end
+  end
+
 
 
 
