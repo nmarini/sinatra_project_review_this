@@ -35,7 +35,20 @@ class ReviewController < ApplicationController
     end
   end
 
+  get '/reviews/:id/edit' do
+    if logged_in?
 
+      @review = Review.find_by_id(params[:id])
+
+      if current_user.reviews.include?(@review)
+        erb :'/reviews/edit_reviews'
+      else
+        redirect "/reviews"
+      end
+    else
+      redirect "/login"
+    end
+  end
 
 
 
