@@ -26,6 +26,17 @@ class ReviewController < ApplicationController
     end
   end
 
+  get '/reviews/:id' do
+    if logged_in?
+      @review = Review.find_by_id(params[:id])
+      redirect "/reviews/#{@review.id}"
+    else
+      redirect "/login"
+    end
+  end
+
+
+
 
 
 
