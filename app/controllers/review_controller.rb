@@ -5,7 +5,6 @@ class ReviewController < ApplicationController
       @reviews = Review.all
       erb :'reviews/reviews'
     else
-      flash_login
       redirect "/login"
     end
   end

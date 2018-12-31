@@ -34,9 +34,5 @@ class ApplicationController < Sinatra::Base
         "Great!"
       end
     end
-
-    def flash_login
-      flash[:login] = "Please Login"
-    end
   end
 end
