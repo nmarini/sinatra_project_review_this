@@ -5,6 +5,8 @@ Install Instructions
 ----------
 Clone this repository https://github.com/nmarini/sinatra_project_review_this.git
 
+Run bundle install
+
 Run shotgun
 
 Visit the local host provided
