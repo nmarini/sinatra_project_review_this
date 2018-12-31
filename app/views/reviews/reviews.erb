@@ -1,11 +1,17 @@
-<h2>Welcome, <%= current_user.username %>! Checkout our All of the Reviews:</h2>
+<h2>Welcome, <%= current_user.username %>! Checkout our of the Reviews:</h2>
 
 <p>
   <% @reviews.each.with_index(1) do |review, index| %>
   <div>
     <%= index %>. <b><%= review.user.username %> reviewed:</b> <%= review.name %><br>
-    It was <%= rating(review.star_rating) %>!<br>
-    <a href="/reviews/<%=review.id%>">Checkout their description here</a>
+    <% if review.star_rating == 1 %>
+    <div style="color:red;">It was <%=convert_rating(review.star_rating)%><br>
+    <% elsif review.star_rating == 2 %>
+    <div style="color:blue;">It was <%=convert_rating(review.star_rating)%><br>
+    <% else review.star_rating == 3 %>
+    <div style="color:green;">It was <%=convert_rating(review.star_rating)%><br>
+    <% end %>
+    <a href="/reviews/<%=review.id%>">Checkout their description here</a></div>
   </div>
   <% end %>
 </p>

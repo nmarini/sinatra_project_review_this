@@ -2,7 +2,7 @@
 
 <p>
   <div>
-    <h3><%= rating(@review.star_rating) %>!</h3>
+    <h3><%= convert_rating(@review.star_rating) %>!</h3>
   </div>
   <div>
     <%= @review.description %>
