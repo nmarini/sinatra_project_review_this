@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div>
-    <%= @review.description %>
+    <mark><%= @review.description %></mark>
   </div>
 </p>
 <%if current_user.reviews.include?(@review)%>
