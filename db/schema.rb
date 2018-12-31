@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181229225138) do
+ActiveRecord::Schema.define(version: 20181231181316) do
 
   create_table "reviews", force: :cascade do |t|
     t.string  "name"
     t.string  "description"
-    t.integer "star_rating"
+    t.integer "rating"
     t.integer "user_id"
   end
 

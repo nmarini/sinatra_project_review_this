@@ -5,6 +5,7 @@ class ReviewController < ApplicationController
       @reviews = Review.all
       erb :'reviews/reviews'
     else
+      flash_login
       redirect "/login"
     end
   end
@@ -19,7 +20,7 @@ class ReviewController < ApplicationController
 
   post '/reviews' do
     if params[:name] != ""
-      @review = Review.create(:name => params[:name], :description => params[:description], :star_rating => params[:star_rating].to_i, :user_id => current_user.id)
+      @review = Review.create(:name => params[:name], :description => params[:description], :rating => params[:rating].to_i, :user_id => current_user.id)
       redirect "/reviews/#{@review.id}"
     else
       redirect "/reviews/new"
@@ -53,7 +54,7 @@ class ReviewController < ApplicationController
   patch '/reviews/:id' do
     if params[:name] != ""
       @review = Review.find_by_id(params[:id])
-      @review.update(:name => params[:name], :description => params[:description], :star_rating => params[:star_rating], :user_id => current_user.id)
+      @review.update(:name => params[:name], :description => params[:description], :rating => params[:rating], :user_id => current_user.id)
       redirect "/reviews/#{@review.id}"
     else
       redirect "/reviews/#{@review.id}/edit"

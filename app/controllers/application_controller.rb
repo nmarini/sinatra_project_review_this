@@ -1,4 +1,5 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -7,6 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "review_this_secret"
+    register Sinatra::Flash
   end
 
   get '/' do
@@ -31,6 +33,10 @@ class ApplicationController < Sinatra::Base
       else
         "Great!"
       end
+    end
+
+    def flash_login
+      flash[:login] = "Please Login"
     end
   end
 end

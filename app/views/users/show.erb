@@ -6,7 +6,7 @@
 <p>
   <% if @user.reviews %>
     <% @user.reviews.each.with_index(1) do |review, index| %>
-    <p><b><%= index %>.</b> <%= review.name %><a href="/reviews/<%=review.id%>"> Check out Review</a></p>
+    <p><b><%= index %>.</b> <%= review.name %><br> Rating: <%= review.rating %> out of 3<a href="/reviews/<%=review.id%>"> Check out Review</a></p>
     <% end %>
     <% else %>
     No Reviews Yet! <a href="/reviews/new">Make A Review</a>

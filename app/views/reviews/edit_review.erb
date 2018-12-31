@@ -6,13 +6,13 @@
   <input type="text" name="name" id="name" value="<%= @review.name %>" placeholder="name"><br>
   Please Update your Rating:
 <div>
-  <label><input type="radio" name="star_rating" value="<%=@review.star_rating%>">1 - Terrible</label>
+  <label><input type="radio" name="star_rating" value="<%=@review.rating%>">1 - Terrible</label>
 </div>
 <div>
-  <label><input type="radio" name="star_rating" value="<%=@review.star_rating%>">2 - Fine</label>
+  <label><input type="radio" name="star_rating" value="<%=@review.rating%>">2 - Fine</label>
 </div>
 <div>
-  <label><input type="radio" name="star_rating"value="<%=@review.star_rating%>">3 - Great</label>
+  <label><input type="radio" name="star_rating"value="<%=@review.rating%>">3 - Great</label>
 </div>
 <div class="form-group">
   <label>Please update your review:<input class="form-control input-lg" id="inputlg" type="text" name="description" value="<%= @review.description %>"></label>
