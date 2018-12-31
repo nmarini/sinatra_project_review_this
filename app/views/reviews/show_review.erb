@@ -1,19 +1,25 @@
-<h2><%= current_user.username %>'s Review of: <%= @review.name %></h2>
+<h2><%= @review.user.username %>'s Review of: <i><%= @review.name %></i></h2>
 
 <p>
   <div>
-    <h3><%= convert_rating(@review.star_rating) %>!</h3>
+    <% if @review.star_rating == 1 %>
+    <h3 style="color:red;">It was <%=convert_rating(@review.star_rating)%></h3><br>
+    <% elsif @review.star_rating == 2 %>
+    <h3 style="color:blue;">It was <%=convert_rating(@review.star_rating)%></h3><br>
+    <% else @review.star_rating == 3 %>
+    <h3 style="color:green;">It was <%=convert_rating(@review.star_rating)%></h3><br>
+    <% end %>
   </div>
   <div>
     <%= @review.description %>
   </div>
 </p>
 <%if current_user.reviews.include?(@review)%>
-<p><a class="btn-primary btn-sm" href="/reviews/<%= @review.id %>/edit">Edit Review</a></p>
+<p><a class="btn-primary btn-lg" href="/reviews/<%= @review.id %>/edit">Edit Review</a></p>
 <p>
 <form action="/reviews/<%=@review.id%>/delete" method="post">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Review">
+  <input type="submit" class="btn btn-danger" value="Delete Review">
 </form>
 </p>
 <%end%>
