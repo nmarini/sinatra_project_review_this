@@ -14,7 +14,7 @@
     <% else review.rating == 3 %>
     <div style="color:green;">It was <%=convert_rating(review.rating)%><br>
     <% end %>
-    <a href="/reviews/<%=review.id%>">Checkout their description here</a></div>
+<a href="/reviews/<%=review.id%>"><mark>Checkout their description here</mark></a></div>
   </div>
   <% end %>
 </p>
